@@ -17,6 +17,6 @@ jobs:
       - run:
           name: Publish Docker Image to Docker Hub
           command: |
-            cat ~/my_password.txt | docker login -u "clooky3000" --password-stdin
+            docker login -u "clooky3000" -p "dckr_pat_EFsdwyCLzOTdpyRq_fgqolavGMw"
             docker push $IMAGE_NAME:latest
 

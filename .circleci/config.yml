@@ -4,18 +4,19 @@ jobs:
     environment:
       IMAGE_NAME: clooky3000/exemple
     machine:
-      - image: ubuntu-2004:2022.10.1
+       image: ubuntu-2004:2022.10.1
 #    docker:
 #      - image: circleci/buildpack-deps:stretch
     steps:
       - checkout
-      - setup_remote_docker
+#      - setup_remote_docker
       - run:
           name: Build Docker image
           command: docker build -t $IMAGE_NAME:latest .
       - run:
           name: Testing docker image
-          command: docker run --rm -d --name=test -p 8080:8080 $IMAGE_NAME:latest && docker ps --last=1 && docker stop test
+          command: docker run --rm -d --name=test -p 8080:8080 $IMAGE_NAME:latest && wget "http://127.0.0.1:8080" && docker stop test
+#docker ps --last=1 && docker stop test
       - run:
           name: Publish Docker Image to Docker Hub
           command: |

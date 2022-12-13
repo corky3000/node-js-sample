@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     environment:
-      IMAGE_NAME: clooky3000/exemple:v1
+      IMAGE_NAME: clooky3000/exemple
     docker:
       - image: circleci/buildpack-deps:stretch
     steps:

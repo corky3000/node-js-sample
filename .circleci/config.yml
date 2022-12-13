@@ -3,8 +3,10 @@ jobs:
   build:
     environment:
       IMAGE_NAME: clooky3000/exemple
-    docker:
-      - image: circleci/buildpack-deps:stretch
+    machine:
+      - image: ubuntu-2004:2022.10.1
+#    docker:
+#      - image: circleci/buildpack-deps:stretch
     steps:
       - checkout
       - setup_remote_docker
